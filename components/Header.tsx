@@ -37,7 +37,7 @@ export default function Header() {
         const isDark = storedMode === 'true';
         setDarkMode(isDark);
         document.documentElement.classList.toggle('dark', isDark);
-    })
+    }, [])
 
     const toggleDarkMode = () => {
         setDarkMode(prev => {
