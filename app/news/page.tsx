@@ -37,7 +37,7 @@ export default function LatestNews() {
     return (
 
 
-        <div className=" mt-5 grid grid-cols-4  border">
+        <div className="w-5/6 border-border border-l border-r  p-5 grid grid-cols-4 ">
 
 
 
