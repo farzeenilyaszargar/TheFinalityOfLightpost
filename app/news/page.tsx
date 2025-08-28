@@ -20,10 +20,6 @@ type NewsItem = {
     dislikes: number;
 };
 
-function renderBoldMarkdown(text: string) {
-    return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-}
-
 
 
 export default function LatestNews() {
@@ -80,7 +76,7 @@ export default function LatestNews() {
                             {
                                 item.image_url ?
                                     (
-                                        <Image src={item.image_url} alt={item.title} width={200} height={100} className='w-full' />
+                                        <Image src={item.image_url} alt={item.title} width={200} height={100} className='w-full' unoptimized/>
 
                                     ) :
                                     (
@@ -90,10 +86,10 @@ export default function LatestNews() {
                             }
                             <h2 className={`font-semibold text-xl mt-2 mb-2 font-title font-color ${item.id === 0 ? 'text-3xl' : 'text-xl'} `}>{item.title}</h2>
                             <p className="text-secondary font-para">{(item.description)}</p>
-                            {/* <p className="text-sm text-gray-400 mt-1">
+                            <p className="text-sm text-gray-400 mt-1">
                                 {new Date(item.published_at).toLocaleString()}
-                            </p> */}
-                            {/* <div className="relative w-1/3 h-4 bg-gray-200 rounded-full">
+                            </p>
+                            <div className="relative w-1/3 h-4 bg-gray-200 rounded-full">
                                 <div
                                     className="absolute inset-0 rounded-full"
                                     style={{
@@ -105,11 +101,11 @@ export default function LatestNews() {
                                     className="absolute top-0 h-full w-1 bg-white "
                                     style={{ left: `${item.bias_score * 10}%` }}
                                 />
-                            </div> */}
+                            </div>
 
-                            {/* <p>{item.bias_reason}</p> */}
-                            {/* <p className="border w-fit rounded ">{item.topic}</p> */}
-                            {/* <p>{item.rating}</p> */}
+                            <p>{item.bias_reason}</p>
+                            <p className="border w-fit rounded ">{item.topic}</p>
+                            <p>{item.rating}</p>
                         </div>
 
 
