@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 import NavbarComp from "@/components/Navbar";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
     <div className="">
       <Header/>
       <NavbarComp/>
-      <p>Yo</p>
+      <Hero/>
 
     </div>
   );
