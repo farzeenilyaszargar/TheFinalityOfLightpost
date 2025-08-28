@@ -3,22 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import React from "react";
+import { NewsItem } from "@/types/news";
 
 
-type NewsItem = {
-    id: string;
-    title: string;
-    description: string;
-    summary: string;
-    published_at: string;
-    image_url?: string | null;
-    bias_score: number;
-    bias_reason: string;
-    topic: string;
-    rating: number;
-    likes: number;
-    dislikes: number;
-};
 
 
 

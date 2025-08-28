@@ -1,8 +1,9 @@
 import Parser from 'rss-parser';
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
+import { NewsItem } from '@/types/news';
 
-const parser = new Parser();
+const parser:Parser = new Parser();
 
 // Supabase client using server-side keys
 export const supabase = createClient(
@@ -72,7 +73,7 @@ export async function fetchAndStoreNews() {
 
       const overall = gptResponse.choices[0].message?.content || "";
 
-      let data: any = {};
+let data: Record<string, unknown> = {};
       try {
         data = JSON.parse(overall);
       } catch (err) {
@@ -80,7 +81,7 @@ export async function fetchAndStoreNews() {
       }
 
       // Extract images from RSS item XML or fields
-      function extractImageFromItem(item: any): string | null {
+      function extractImageFromItem(item:any): string | null{
         // Direct RSS tags
         if (item.enclosure?.url) return item.enclosure.url;
         if (item['media:content']?.url) return item['media:content'].url;
@@ -139,6 +140,7 @@ export async function fetchAndStoreNews() {
       if (!imageUrl) {
         imageUrl = data.imgUrl;
       }
+      
 
 
 
